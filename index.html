@@ -15,50 +15,55 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-		
-			<!-- JS for Smooth Scroll -->
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-				<script>
-				$(document).ready(function(){
-				  // Add smooth scrolling to all links
-				  $("a").on('click', function(event) {
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>		
+	
 
-				    // Make sure this.hash has a value before overriding default behavior
-				    if (this.hash !== "") {
-				      // Prevent default anchor click behavior
-				      event.preventDefault();
 
-				      // Store hash
-				      var hash = this.hash;
 
-				      // Using jQuery's animate() method to add smooth page scroll
-				      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-				      $('html, body').animate({
-				        scrollTop: $(hash).offset().top
-				      }, 800, function(){
-
-				        // Add hash (#) to URL when done scrolling (default click behavior)
-				        window.location.hash = hash;
-				      });
-				    } // End if
-				  });
-				});
-				</script>
 
 	<style>
-		.scrollUp {
+		.top-btn {
 			position: fixed;
     		right: 30px;
     		bottom: 75px;
     		z-index: 2;
+    		cursor: pointer;
 		}
+
+		/*Animation*/
+		@keyframes beat {
+			0% {
+				transform: scale(1) rotate(0deg);
+				 }
+			50% {
+	 			transform: scale(1.2) rotate(6deg);
+				}
+			100% {
+				transform: scale(1) rotate(0deg);
+				}
+		}
+
+		.beat-anim {
+			animation: beat 1s infinite;
+		}
+
+		.text-slide {
+			opacity: 0;
+			z-index: 99;
+		}
+
+		.text-slide:hover{
+			opacity: 100%;
+		}
+
+
 
 	</style>
 
 </head>
 <body>
 
-
+	
 
 
 
@@ -105,11 +110,17 @@
   		</div>
 	</nav>
 
-	<div class="scrollUp">
+
+
+
+	<!-- Scroll Top Button -->
+	<div class="top-btn" id="myBtn">
 		<a href="#top">
-			<img src="./img/up-arrow.png">
+		<img src="./img/up-arrow.png">
 		</a>
 	</div>
+
+	
 	
 
 	<!-- Carousel -->
@@ -158,18 +169,19 @@
   		</p>
 	</div>
 
+
+
 	<!-- Latest Products -->
 	<section>
 		<div id="latest-products">
 			
 				<div class="container">
 					<h2>Latest Products</h2>
-
 					<div class="row">
 						
 						<!-- Card 1 -->	
-						<div class="col-sm-12 col-lg-4 col-md-6 pb-3"><!-- <div class="col-sm-4 pb-3"> -->
-							<div class="card shadow p-2" style="width: 18rem;">
+						<div class="col-sm-12 col-lg-4 col-md-6 pb-3">
+							<div class="card shadow p-2 mx-auto" style="width: 18rem;">
 			  					<img class="card-img-top" src="./img/img1.jpg" alt="Card image cap">
 			  					<div class="card-body" style="height: 15rem;">
 			    					<h5 class="card-title">Coffeelicious</h5>
@@ -182,8 +194,8 @@
 						</div>
 
 						<!-- Card 2 -->	
-						<div class="col-sm-12 col-lg-4 col-md-6 pb-3">
-							<div class="card shadow p-2" style="width: 18rem;">
+						<div class="col-sm-12 col-lg-4 col-md-6 pb-1">
+							<div class="card shadow p-2 mx-auto" style="width: 18rem;">
 			  					<img class="card-img-top" src="./img/img2.jpg" alt="Card image cap">
 			  					<div class="card-body" style="height: 15rem;">
 			    					<h5 class="card-title">Hairylicious</h5>
@@ -197,7 +209,7 @@
 
 						<!-- Card 3 -->	
 						<div class="col-sm-12 col-lg-4 col-md-6 pb-3">
-							<div class="card shadow p-2" style="width: 18rem;">
+							<div class="card shadow p-2 mx-auto" style="width: 18rem;">
 			  					<img class="card-img-top" src="./img/img3.jpg" alt="Card image cap">
 			  					<div class="card-body" style="height: 15rem;">
 			    					<h5 class="card-title">Carlicious</h5>
@@ -348,7 +360,23 @@
 		</div>
 	</section>
 
+
+
+	<!-- Heart Animation -->
+	<div class="container">
+		<div class="text-center pb-4 pt-1">
+			<a href="https://instagram.com/matevaltr" target="_blank">
+			<img class="text-slide" src="./img/follow.png">
+			<img class="beat-anim" src="./img/love.png">
+			</a>
+		</div>
+	</div>
+
+
+
 	<footer class="text-center p-2 bg-dark text-light">HelloWorld Inc 2019</footer>
+
+
 
 
 
@@ -461,7 +489,7 @@
   </div>
 </div>
 
-
+<script src="script.js"></script>
 
 </body>
 </html>
